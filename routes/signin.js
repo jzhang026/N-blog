@@ -18,7 +18,7 @@ router.post('/', checkNotLogin, function(req, res, next) {
   UserModel.getUserByName(name)
     .then(function (user) {
       if (!user) {
-        req.flash('error', '用户不存在');
+        req.flash('error', '用户不存在，将返回');
         return res.redirect('back');
       }
       // 检查密码是否匹配

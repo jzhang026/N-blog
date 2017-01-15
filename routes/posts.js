@@ -93,10 +93,10 @@ router.get('/:postId/edit', checkLogin, function(req, res, next) {
   PostModel.getRawPostById(postId)
     .then(function (post) {
       if (!post) {
-        throw new Error('该文章不存在');
+        throw new Error('该文章不存在，请查清后再post');
       }
       if (author.toString() !== post.author._id.toString()) {
-        throw new Error('权限不足');
+        throw new Error('权限不足，请充值');
       }
       res.render('edit', {
         post: post
